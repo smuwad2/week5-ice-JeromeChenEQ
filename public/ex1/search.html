@@ -30,7 +30,7 @@
             function showHint() {
                 axios.get("/suggest", {
                     params: {
-                        query: document.getElementById("nameInput").value
+                        "query": document.getElementById("nameInput").value
                 }})
                     .then(Response => {
                         const suggestions = document.getElementById("suggestions");
