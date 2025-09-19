@@ -37,6 +37,23 @@
             // Fetch categories from the server using Axios
             // and display them in the select element
             // url: http://localhost:3010/categories
+            axios.get('/categories')
+            .then(
+                response=> {
+                    const selectTagName = document.getElementsByTagName("select")[0];
+                    for(let categ of response.data) {
+                        const options = document.createElement("option");
+                        options.innerText = categ;
+
+                        selectTagName.appendChild(options);
+                }
+
+                }
+            )
+            .catch(
+                error=>console.log(error)
+            )
+            
 
         }
 
