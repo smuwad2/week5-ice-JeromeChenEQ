@@ -56,14 +56,12 @@
             select.appendChild(opt);
         });
 
-        // Restore previous selection if still available, else reset to "To select"
         if ([...select.options].some(o => o.value === previous)) {
             select.value = previous;
         } else {
             select.value = "0";
         }
 
-        // If a valid category (not "To select") was selected, load items for it
         if (select.value !== "0") {
             getItems();
         }
@@ -72,7 +70,7 @@
     async function getItems() {
         const selected = document.getElementById("selectCategory").value;
         const itemsList = document.getElementById("itemsList");
-        itemsList.innerHTML = ""; // clear old items
+        itemsList.innerHTML = "";
 
         if (selected === "0") {
             itemsList.innerHTML = `<p class="text-center">No items</p>`;
